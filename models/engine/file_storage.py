@@ -4,8 +4,7 @@ deserializes JSON file"""
 
 
 import json
-import os
-from models.base_model import BaseModel
+from os import path
 
 
 class FileStorage:
@@ -20,7 +19,7 @@ class FileStorage:
     def new(self, obj):
         """sets in __objects the obj"""
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        obj = self.__objects[key]
+        self.__objects[key] = obj
 
     def save(self):
         """serializes __objects to the JSON file"""
