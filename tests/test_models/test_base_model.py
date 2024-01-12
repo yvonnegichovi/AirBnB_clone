@@ -2,7 +2,6 @@
 """This module contains a test for class BaseModel"""
 
 
-import unittest
 from models.base_model import BaseModel
 
 my_model = BaseModel()

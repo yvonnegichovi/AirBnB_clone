@@ -4,8 +4,7 @@ deserializes JSON file"""
 
 
 import json
-from os import path
-from models import storage
+import os
 from models.base_model import BaseModel
 
 
