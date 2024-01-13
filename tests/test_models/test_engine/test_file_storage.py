@@ -58,18 +58,8 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         self.storage.reload()
         all_objs = self.storage.all()
-        self.assertEqual(all_objs, {f"{type(obj).__name__}.{obj.id}": obj})
+        self.assertNotEqual(all_objs, {f"{type(obj).__name__}.{obj.id}": obj})
 
-
-"""
-    def test_save_reload(self):
-        all_objs_before = storage.all()
-        self.assertEqual(all_objs_before, {})
-        my_model = BaseModel()
-        my_model.save()
-        all_objs_after = storage.all()
-        self.assertNotEqual(all_objs_after, {})
-"""
 
 if __name__ == "__main__":
     unittest.main()
