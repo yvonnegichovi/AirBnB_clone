@@ -1,6 +1,6 @@
 #!/usr/bin/python
 """
-Module for console
+THIS IS THE MODULE FOR THE CONSOLE Module
 """
 import cmd
 import re
@@ -18,7 +18,7 @@ from models.city import City
 
 def split_curly_braces(e_arg):
     """
-    Splits the curly braces for the update method
+    Split OF  the curly braces for the update method
     """
     curly_braces = re.search(r"\{(.*?)\}", e_arg)
 
@@ -79,6 +79,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """
+        TASK 8
         Create a new instance of BaseModel and save it to the JSON file.
         Usage: create <class_name>
         """
@@ -95,6 +96,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
+        TASK 8
         Show the string representation of an instance.
         Usage: show <class_name> <id>
         """
@@ -117,6 +119,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """
+        TASK 8
         Delete an instance based on the class name and id.
         Usage: destroy <class_name> <id>
         """
@@ -139,9 +142,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
+        TASK 8
         Print the string representation of all instances or a specific class.
-        Usage: <User>.all()
-                <User>.show()
+        Usage:USERS WHICH ARE ALL AND ALSO SHOW USERS
         """
         objects = storage.all()
 
@@ -159,8 +162,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, arg):
         """
+        THIS IS TASK 12
         Counts and retrieves the number of instances of a class
-        usage: <class name>.count()
+        usage: CALSS NAME
         """
         objects = storage.all()
 
@@ -184,8 +188,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
+        THIS IS TASK 15
         Update an instance by adding or updating an attribute.
-        Usage: update <class_name> <id> <attribute_name> "<attribute_value>"
+        Usage: update CLASS NAME.ATTRIBUTE NAME AND ATTRIBUTE VALUE AS SHOWN"
         """
         commands = shlex.split(arg)
 
