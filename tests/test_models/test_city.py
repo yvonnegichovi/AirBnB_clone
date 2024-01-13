@@ -3,15 +3,16 @@
 Module for testing the 'City' class from 'models.city'.
 """
 
-from tests.test_models.test_base_model import test_basemodel
+import unittest
+from models.base_model import BaseModel
 from models.city import City
 
-class test_City(test_basemodel):
+class TestCity(unittest.TestCase):
     """
     Test class for the 'City' class, inheriting from 'test_basemodel'.
     """
 
-    def __init__(self, *args, **kwargs):
+    def setUp(self, *args, **kwargs):
         """
         Initializes the test instance with optional arguments and keyword arguments.
         """

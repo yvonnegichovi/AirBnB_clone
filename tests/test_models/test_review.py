@@ -3,15 +3,16 @@
 Module for testing the 'Review' class from 'models.review'.
 """
 
-from tests.test_models.test_base_model import test_basemodel
+import unittest
 from models.review import Review
+from models.base_model import BaseModel
 
-class test_review(test_basemodel):
+class TestReview(unittest.TestCase):
     """
     Test class for the 'Review' class, inheriting from 'test_basemodel'.
     """
 
-    def __init__(self, *args, **kwargs):
+    def setUp(self, *args, **kwargs):
         """
         Initializes the test instance with optional arguments and keyword arguments.
         """

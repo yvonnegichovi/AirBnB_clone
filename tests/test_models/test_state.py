@@ -3,15 +3,17 @@
 Module for testing the 'State' class from 'models.state'.
 """
 
-from tests.test_models.test_base_model import test_basemodel
+import unittest
+from models.base_model import BaseModel
 from models.state import State
 
-class test_state(test_basemodel):
+
+class TestState(unittest.TestCase):
     """
     Test class for the 'State' class, inheriting from 'test_basemodel'.
     """
 
-    def __init__(self, *args, **kwargs):
+    def setUp(self, *args, **kwargs):
         """
         Initializes the test instance with optional arguments and keyword arguments.
         """
