@@ -38,5 +38,3 @@ class FileStorage:
                 for obj in data.values():
                     class_name = obj["__class__"]
                     self.new(eval(class_name)(**obj))
-        else:
-            return
