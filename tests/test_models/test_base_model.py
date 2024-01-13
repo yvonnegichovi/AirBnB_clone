@@ -2,6 +2,7 @@
 """This module contains a test for class BaseModel"""
 
 import unittest
+import unittest.mock
 from datetime import datetime
 from models.base_model import BaseModel
 import uuid
