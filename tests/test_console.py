@@ -37,7 +37,7 @@ class TestConsoleHelp(unittest.TestCase):
     def test_help_EOF_command(self):
         with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
-            self.assertEqual(f.getvalue(), "\n")
+            self.assertEqual(f.getvalue(), "")
 
     def test_help_emptyline_command(self):
         with patch ('sys.stdout', new=StringIO()) as f:
