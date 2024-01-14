@@ -15,7 +15,8 @@ class TestCity(unittest.TestCase):
 
     def setUp(self, *args, **kwargs):
         """
-        Initializes the test instance with optional arguments and keyword arguments.
+        Initializes the test instance with optional arguments and
+        keyword arguments.
         """
         super().__init__(*args, **kwargs)
         self.name = "City"
