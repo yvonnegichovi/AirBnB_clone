@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """
-        Create a new instance of BaseModel and save it to the JSON file.
+        Create a new instance of BaseModel.
         """
         commands = shlex.split(arg)
 
@@ -101,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
-        Print the string representation of all instances or a specific class.
+        Print the string representation.
         """
         objects = storage.all()
 

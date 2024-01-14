@@ -37,7 +37,7 @@ class TestConsoleHelp(unittest.TestCase):
     def test_help_EOF_command(self):
         with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
-            self.assertEqual(f.getvalue(), "\n")
+            self.assertEqual(f.getvalue(), "")
 
     def test_help_emptyline_command(self):
         with patch ('sys.stdout', new=StringIO()) as f:
@@ -55,8 +55,7 @@ class TestConsoleHelp(unittest.TestCase):
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(
                     f.getvalue().strip(),
-                    "Create a new instance of BaseModel and save it to the
-                    JSON file.")
+                    "Create a new instance of BaseModel.")
 
     def test_create_command(self):
         with patch('sys.stdout', new=StringIO()) as f:
@@ -64,24 +63,23 @@ class TestConsoleHelp(unittest.TestCase):
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(
                     f.getvalue().strip(),
-                    "Create a new instance of BaseModel and save it to the
-                    JSON file.")
+                    "Create a new instance of BaseModel.")
 
     def test_help_show_command(self):
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(
-                    f.getvalue().strip(), "Show the string representation
-                    of an instance.")
+                    f.getvalue().strip(),
+                    "Show the string representation of an instance.")
 
     def test_help_destroy_command(self):
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help destroy")
             self.assertIsInstance(f.getvalue(), str)
-            self.assbertEqual(
-                    f.getvalue().strip(), "Delete an instance based on the
-                    class name and id.")
+            self.assertEqual(
+                    f.getvalue().strip(),
+                    "Delete an instance based on the class name and id.")
 
     def test_help_all_command(self):
         with patch('sys.stdout', new=StringIO()) as f:
@@ -89,8 +87,7 @@ class TestConsoleHelp(unittest.TestCase):
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(
                     f.getvalue().strip(),
-                    "Print the string representation of all instances
-                    or a specific class.")
+                    "Print the string representation.")
 
     def test_help_update_command(self):
         with patch('sys.stdout', new=StringIO()) as f:
