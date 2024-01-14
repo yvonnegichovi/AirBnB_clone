@@ -61,6 +61,12 @@ class TestConsoleHelp(unittest.TestCase):
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(f.getvalue().strip(), "Create a new instance of BaseModel and save it to the JSON file.")
 
+    def test_help_show_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help show")
+            self.assertIsInstance(f.getvalue(), str)
+            self.assertEqual(f.getvalue().strip(), "Show the string representation of an instance.")
+
 
 if __name__ == "__main__":
     unittest.main()
