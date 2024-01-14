@@ -7,6 +7,7 @@ import unittest
 from models.place import Place
 from models.base_model import BaseModel
 
+
 class TestPlace(unittest.TestCase):
     """
     Test class for the 'Place' class, inheriting from 'test_basemodel'.

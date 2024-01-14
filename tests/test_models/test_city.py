@@ -7,6 +7,7 @@ import unittest
 from models.base_model import BaseModel
 from models.city import City
 
+
 class TestCity(unittest.TestCase):
     """
     Test class for the 'City' class, inheriting from 'test_basemodel'.
