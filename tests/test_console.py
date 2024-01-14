@@ -17,11 +17,9 @@ class TestConsoleHelp(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=StringIO)
     def test_help_quit_command(self, mock_stdout):
-        with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd("help quit")
-            expected_output = "" 
-            output = mock_stdout.getvalue().strip()
-            self.assertEqual(expected_output, output)
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("quit")
+            self.assertEqual(f.getvalue(), "")
 
 
 if __name__ == "__main__":
