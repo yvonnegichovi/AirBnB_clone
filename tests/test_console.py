@@ -67,6 +67,18 @@ class TestConsoleHelp(unittest.TestCase):
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(f.getvalue().strip(), "Show the string representation of an instance.")
 
+    def test_help_destroy_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help destroy")
+            self.assertIsInstance(f.getvalue(), str)
+            self.assertEqual(f.getvalue().strip(), "Delete an instance based on the class name and id.")
+
+    def test_help_all_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help all")
+            self.assertIsInstance(f.getvalue(), str)
+            self.assertEqual(f.getvalue().strip(), "Print the string representation of all instances or a specific class.")
+
 
 if __name__ == "__main__":
     unittest.main()
