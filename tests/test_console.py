@@ -44,6 +44,11 @@ class TestConsoleHelp(unittest.TestCase):
             HBNBCommand().onecmd("\n")
             self.assertEqual(f.getvalue(), "")
 
+    def test_help_command_type(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help")
+            self.assertIsInstance(f.getvalue(), str)
+
 
 if __name__ == "__main__":
     unittest.main()
