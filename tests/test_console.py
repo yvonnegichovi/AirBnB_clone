@@ -30,22 +30,22 @@ class TestConsoleHelp(unittest.TestCase):
         pass
 
     def test_help_quit_command(self):
-        with patch('sys.stdout', new=StringIO()) as f:
+        with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("quit")
             self.assertEqual(f.getvalue(), "")
 
     def test_help_EOF_command(self):
-        with patch('sys.stdout', new=StringIO()) as f:
+        with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
             self.assertEqual(f.getvalue(), "\n")
 
     def test_help_emptyline_command(self):
-        with patch('sys.stdout', new=StringIO()) as f:
+        with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("\n")
             self.assertEqual(f.getvalue(), "")
 
     def test_help_command_type(self):
-        with patch('sys.stdout', new=StringIO()) as f:
+        with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help")
             self.assertIsInstance(f.getvalue(), str)
 
