@@ -79,6 +79,17 @@ class TestConsoleHelp(unittest.TestCase):
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(f.getvalue().strip(), "Print the string representation of all instances or a specific class.")
 
+    def test_help_update_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help update")
+            self.assertIsInstance(f.getvalue(), str)
+            self.assertEqual(f.getvalue().strip(), "Update an instance by adding or updating an attribute.")
+
+    def test_help_count_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help count")
+            self.assertIsInstance(f.getvalue(), str)
+            self.assertEqual(f.getvalue().strip(), "Counts and retrieves the number of instances of a class")
 
 if __name__ == "__main__":
     unittest.main()
