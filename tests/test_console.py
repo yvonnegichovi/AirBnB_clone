@@ -34,6 +34,16 @@ class TestConsoleHelp(unittest.TestCase):
             HBNBCommand().onecmd("quit")
             self.assertEqual(f.getvalue(), "")
 
+    def test_help_EOF_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("EOF")
+            self.assertEqual(f.getvalue(), "\n")
+
+    def test_help_emptyline_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("\n")
+            self.assertEqual(f.getvalue(), "")
+
 
 if __name__ == "__main__":
     unittest.main()
