@@ -53,7 +53,7 @@ class TestConsoleHelp(unittest.TestCase):
         with patch ('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help create")
             self.assertIsInstance(f.getvalue(), str)
-            self.assertEqual(f.getvalue().strip(), "Creates a new instance.")
+            self.assertEqual(f.getvalue().strip(), "Create a new instance of BaseModel and save it to the JSON file.")
 
 
 if __name__ == "__main__":
