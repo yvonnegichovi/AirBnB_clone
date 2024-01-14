@@ -49,6 +49,12 @@ class TestConsoleHelp(unittest.TestCase):
             HBNBCommand().onecmd("help")
             self.assertIsInstance(f.getvalue(), str)
 
+    def test_help_create_command(self):
+        with patch ('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help create")
+            self.assertIsInstance(f.getvalue(), str)
+            self.assertEqual(f.getvalue().strip(), "Creates a new instance.")
+
 
 if __name__ == "__main__":
     unittest.main()
