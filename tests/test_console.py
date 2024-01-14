@@ -116,13 +116,13 @@ class TestConsoleHelp(unittest.TestCase):
                     f.getvalue().strip(),
                     "Counts and retrieves the number of instances of a class")
 
-    def  test_create_valid_instance(self):
+    def test_create_valid_instance(self):
         """tests the create valid instance"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create BaseModel")
             self.assertTrue(f.getvalue().strip())
 
-    def  test_create_invalid_instance(self):
+    def test_create_invalid_instance(self):
         """tests when you create an invalid instance"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create InvalidClass")
