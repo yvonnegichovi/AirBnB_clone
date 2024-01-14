@@ -30,26 +30,31 @@ class TestConsoleHelp(unittest.TestCase):
         pass
 
     def test_help_quit_command(self):
-        with patch ('sys.stdout', new=StringIO()) as f:
+        """tests help quit"""
+        with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("quit")
             self.assertEqual(f.getvalue(), "")
 
     def test_help_EOF_command(self):
-        with patch ('sys.stdout', new=StringIO()) as f:
+        """tests help EOF"""
+        with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
             self.assertEqual(f.getvalue(), "")
 
     def test_help_emptyline_command(self):
-        with patch ('sys.stdout', new=StringIO()) as f:
+        """Tests emptyline"""
+        with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("\n")
             self.assertEqual(f.getvalue(), "")
 
     def test_help_command_type(self):
-        with patch ('sys.stdout', new=StringIO()) as f:
+        """tests the type of instance help"""
+        with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help")
             self.assertIsInstance(f.getvalue(), str)
 
     def test_help_create_command(self):
+        """Tests the help create command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help create")
             self.assertIsInstance(f.getvalue(), str)
@@ -58,6 +63,7 @@ class TestConsoleHelp(unittest.TestCase):
                     "Create a new instance of BaseModel.")
 
     def test_create_command(self):
+        """tests the create command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("? create")
             self.assertIsInstance(f.getvalue(), str)
@@ -66,6 +72,7 @@ class TestConsoleHelp(unittest.TestCase):
                     "Create a new instance of BaseModel.")
 
     def test_help_show_command(self):
+        """tests the help shhow command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
             self.assertIsInstance(f.getvalue(), str)
@@ -74,6 +81,7 @@ class TestConsoleHelp(unittest.TestCase):
                     "Show the string representation of an instance.")
 
     def test_help_destroy_command(self):
+        """tests the help destroy command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help destroy")
             self.assertIsInstance(f.getvalue(), str)
@@ -82,6 +90,7 @@ class TestConsoleHelp(unittest.TestCase):
                     "Delete an instance based on the class name and id.")
 
     def test_help_all_command(self):
+        """tests the help all command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help all")
             self.assertIsInstance(f.getvalue(), str)
@@ -90,6 +99,7 @@ class TestConsoleHelp(unittest.TestCase):
                     "Print the string representation.")
 
     def test_help_update_command(self):
+        """tests the help upfate command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help update")
             self.assertIsInstance(f.getvalue(), str)
@@ -98,12 +108,26 @@ class TestConsoleHelp(unittest.TestCase):
                     "Update an instance by adding or updating an attribute.")
 
     def test_help_count_command(self):
+        """tests the help count command"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help count")
             self.assertIsInstance(f.getvalue(), str)
             self.assertEqual(
                     f.getvalue().strip(),
                     "Counts and retrieves the number of instances of a class")
+
+    def  test_create_valid_instance(self):
+        """tests the create valid instance"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("create BaseModel")
+            self.assertTrue(f.getvalue().strip())
+
+    def  test_create_invalid_instance(self):
+        """tests when you create an invalid instance"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("create InvalidClass")
+            expected_output = "** class doesn't exist **"
+            self.assertIn(expected_output, f.getvalue().strip())
 
 
 if __name__ == "__main__":
