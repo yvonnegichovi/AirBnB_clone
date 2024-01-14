@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 THIS IS THE MODULE FOR THE CONSOLE Module
 """
@@ -14,41 +14,6 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.city import City
-
-
-def split_curly_braces(e_arg):
-    """
-    Split OF  the curly braces for the update method
-    """
-    curly_braces = re.search(r"\{(.*?)\}", e_arg)
-
-    if curly_braces:
-        id_with_comma = shlex.split(e_arg[:curly_braces.span()[0]])
-        id = [i.strip(",") for i in id_with_comma][0]
-
-        str_data = curly_braces.group(1)
-        try:
-            arg_dict = ast.literal_eval("{" + str_data + "}")
-        except Exception:
-            print("**  invalid dictionary format **")
-            return
-        return id, arg_dict
-    else:
-        commands = e_arg.split(",")
-        if commands:
-            try:
-                id = commands[0]
-            except Exception:
-                return "", ""
-            try:
-                attr_name = commands[1]
-            except Exception:
-                return id, ""
-            try:
-                attr_value = commands[2]
-            except Exception:
-                return id, attr_name
-            return f"{id}", f"{attr_name} {attr_value}"
 
 
 class HBNBCommand(cmd.Cmd):
@@ -290,6 +255,40 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("*** Unknown syntax: {}".format(arg))
             return False
+
+    def split_curly_braces(e_arg):
+        """
+        Split OF  the curly braces for the update method
+        """
+        curly_braces = re.search(r"\{(.*?)\}", e_arg)
+
+        if curly_braces:
+            id_with_comma = shlex.split(e_arg[:curly_braces.span()[0]])
+            id = [i.strip(",") for i in id_with_comma][0]
+
+            str_data = curly_braces.group(1)
+            try:
+                arg_dict = ast.literal_eval("{" + str_data + "}")
+            except Exception:
+                print("**  invalid dictionary format **")
+                return
+            return id, arg_dict
+        else:
+            commands = e_arg.split(",")
+            if commands:
+                try:
+                    id = commands[0]
+                except Exception:
+                    return "", ""
+                try:
+                    attr_name = commands[1]
+                except Exception:
+                    return id, ""
+                try:
+                    attr_value = commands[2]
+                except Exception:
+                    return id, attr_name
+                return f"{id}", f"{attr_name} {attr_value}"
 
 
 if __name__ == '__main__':
