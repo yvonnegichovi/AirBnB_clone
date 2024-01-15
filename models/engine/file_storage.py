@@ -7,7 +7,7 @@ import os
 class FileStorage:
     """This class manages the storage storage of hbnb models in JSON format"""
     __file_path = 'file.json'
-    __objects = {}
+    __objects: dict = {}
 
     def all(self):
         """Returns a dictionary of models currently in storage"""
