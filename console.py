@@ -142,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_update(self, arg):
-        """
+                """
         Update an instance by adding or updating an attribute.
         """
         commands = shlex.split(arg)
